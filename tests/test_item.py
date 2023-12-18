@@ -28,3 +28,9 @@ def test_instantiate_from_csv():
 
 def test_string_to_number():
     assert Item.string_to_number('123.5') == 123
+
+def test_repr(soap):
+    assert repr(soap) == "Item('Soap', 50, 1000)"
+
+def test_str(soap):
+    assert str(soap) == 'Soap'
