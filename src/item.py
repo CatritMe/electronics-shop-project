@@ -36,6 +36,11 @@ class Item:
         """
         return self.price * self.quantity
 
+    def __add__(self, other):
+        if issubclass(other.__class__, Item):
+            return self.quantity + other.quantity
+        raise ValueError("Нельзя сложить классы 'Phone' или 'Item' с не 'Phone' или 'Item'")
+
     def apply_discount(self) -> float:
         """
         Применяет установленную скидку для конкретного товара.

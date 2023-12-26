@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 import pytest
 from src.item import Item
+from src.phone import Phone
 
 
 @pytest.fixture
@@ -34,3 +35,11 @@ def test_repr(soap):
 
 def test_str(soap):
     assert str(soap) == 'Soap'
+
+def test_add():
+    item1 = Item('Ноутбук', 70000, 10)
+    phone1 = Phone('iPhone', 50000, 20, 2)
+    assert item1 + phone1 == 30
+    assert phone1 + phone1 == 40
+    with pytest.raises(TypeError):
+        123 + item1
