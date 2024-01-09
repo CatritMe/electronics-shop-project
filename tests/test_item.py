@@ -22,19 +22,24 @@ def test_name(soap):
     soap.name = 'Soapthebest'
     assert soap.name == 'Soapthebes'
 
+
 def test_instantiate_from_csv():
     Item.instantiate_from_csv('src/items.csv')
     item1 = Item.all[0]
     assert item1.name == 'Смартфон'
 
+
 def test_string_to_number():
     assert Item.string_to_number('123.5') == 123
+
 
 def test_repr(soap):
     assert repr(soap) == "Item('Soap', 50, 1000)"
 
+
 def test_str(soap):
     assert str(soap) == 'Soap'
+
 
 def test_add():
     item1 = Item('Ноутбук', 70000, 10)
